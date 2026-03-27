@@ -19,6 +19,7 @@
 2. What is the danceability of explicit songs compared to non-explicit songs?
 3. Do high-tempo songs perform better than low-tempo songs?
 ## Repository Structure
+```
 cis4930-sp26-project-group-08/
 |--README.md
 |--CONTRIBUTING.md
@@ -32,5 +33,6 @@ cis4930-sp26-project-group-08/
 |  |--analysis.ipynb
 |--figures/
 |--src/
+```
 ## Work Division
 See CONTRIBUTING.md
