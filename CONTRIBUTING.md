@@ -11,3 +11,10 @@
 2. Pull Requests: When feature is ready, a pull request is opened before merging with main
 3. Commits: Clear, descriptive commit messages
 4. Issues: Issues to track tasks
+## Notebook Organization
+1. Data Loading: Data Wrangler
+2. Cleaning and Transformation: Data Wrangler
+3. Descriptive Statistics and EDA: Analyst
+4. Visualizations and Feature Exploration: Visualization
+5. Summary and Key Findings: Documentation
+
