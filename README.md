@@ -4,8 +4,8 @@
 | ---- | ------ |
 | Alejandra McLetchie	| am23ga |
 | Raul Medrano |	rem22r |
-| Jake Serwe |	Js23g |
-| Charlie Bleeze	| Cfb22 |
+| Jake Serwe |	js23g |
+| Charlie Bleeze	| cfb22 |
 ## Project Description
  In this project we explore a dataset of Spotify tracks and their audio features to understand what characteristics are associated with popular music. Using attributes like danceability, energy, tempo, and genre, we investigate patterns in listener preferences and how audio features vary across categories and time.
 ## Dataset: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
