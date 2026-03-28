@@ -14,7 +14,7 @@
 - Size: First 500 entries (raw dataset was too large)
 - Numeric Columns: popularity, danceability, energy, tempo, loudness, duration_mmss, valence, liveness
 - Categorical Columns: track_genre, explicit (True/False), popularity_level
-## Reseach Questions
+## Research Questions
 1. Which genres tend to have the highest average popularity?
 2. What is the danceability of explicit songs compared to non-explicit songs?
 3. Do high-tempo songs perform better than low-tempo songs?
