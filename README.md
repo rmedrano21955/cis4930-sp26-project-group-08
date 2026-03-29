@@ -32,6 +32,10 @@ cis4930-sp26-project-group-08/
 |--notebooks/
 |  |--analysis.ipynb
 |--figures/
+|  |--Average Popularity of Top 15 Genres.png
+|  |--Energy vs Popularity Level.png
+|  |--Explicit v Clean Tracks.png
+|  |--Track Tempo and Popularity.png
 |--src/
 ```
 ## Work Division
