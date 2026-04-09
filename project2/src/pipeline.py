@@ -1,3 +1,4 @@
+from src.storage import save_to_csv, save_to_sqlite
 import requests
 import pandas as pd
 import sqlite3
@@ -36,7 +37,8 @@ def fetch_movies(search_term):
 
             if not movies:
                 break
-
+	
+            all_movies.extend(movies)		
             page += 1
         except requests.exceptions.Timeout:
             print("Request timed out, will skip this run.")
@@ -46,7 +48,11 @@ def fetch_movies(search_term):
     return all_movies
 
 def main():
-    #output record collection and save results
+    for term in SEARCH_TERMS:
+        movies = fetch_movies(term)
+        count_csv = save_to_csv(movies, search_term=term)
+        count_db = save_to_sqlite(movies, search_term=term)
+        print(f"Saved {count_csv} new to CSV, {count_db} new to SQLite for '{term}'")
 
 if __name__ == "__main__":
     main()
