@@ -12,7 +12,7 @@ def clean_dataframe(df: pd.DataFrame, search_term: str = "") -> pd.DataFrame:
 		"Title": "title",
 		"Year": "year",
 		"imdbID": "imdbID",
-		"TYpe": "type",
+		"Type": "type",
 		"Poster": "poster_url",
 	})
 
