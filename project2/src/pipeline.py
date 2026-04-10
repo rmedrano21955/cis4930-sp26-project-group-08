@@ -37,7 +37,18 @@ def fetch_movies(search_term):
 
             if not movies:
                 break
-	
+				
+			#JSON parsing
+			for item in movies:
+				record = {
+					"title": item.get("Title),
+					"year": item.get("Year"),
+					"imdb_id": item.get("imdbID"),
+					"type": item.get("Type"),
+					"poster": item.get("Poster"),
+					"search_term": search_term
+				}
+
             all_movies.extend(movies)		
             page += 1
         except requests.exceptions.Timeout:
