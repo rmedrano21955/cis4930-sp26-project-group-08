@@ -3,7 +3,7 @@
 | Name | FSU ID | Responsibility |
 | ---- | ------ | -------------- |
 | Alejandra McLetchie	| am23ga | - |
-| Raul Medrano |	rem22r | - |
+| Raul Medrano |	rem22r | HTTP, params, pagination |
 | Jake Serwe |	js23g | Handled documentation
 | Charlie Bleeze	| cfb22 | - |
 
