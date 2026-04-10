@@ -2,7 +2,7 @@
 ## Group Members
 | Name | FSU ID | Responsibility |
 | ---- | ------ | -------------- |
-| Alejandra McLetchie	| am23ga | - |
+| Alejandra McLetchie	| am23ga | Error Checking|
 | Raul Medrano |	rem22r | HTTP, params, pagination |
 | Jake Serwe |	js23g | Handled documentation
 | Charlie Bleeze	| cfb22 | - |
