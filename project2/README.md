@@ -4,7 +4,7 @@
 | ---- | ------ |
 | Alejandra McLetchie	| am23ga |
 | Raul Medrano |	rem22r |
-| Jake Serwe |	js23g |
+| Jake Serwe |	js23g | Handled documentation
 | Charlie Bleeze	| cfb22 |
 
 
