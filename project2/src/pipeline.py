@@ -41,7 +41,7 @@ def fetch_movies(search_term):
 			#JSON parsing
 			for item in movies:
 				record = {
-					"title": item.get("Title),
+					"title": item.get("Title"),
 					"year": item.get("Year"),
 					"imdb_id": item.get("imdbID"),
 					"type": item.get("Type"),
