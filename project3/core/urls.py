@@ -19,4 +19,5 @@ urlpatterns = [
     path("movies/<int:pk>/", views.movie_detail, name="movie-detail"),
     path("movies/<int:pk>/edit/", views.movie_update, name="movie-update"),
     path("movies/<int:pk>/delete/", views.movie_delete, name="movie-delete"),
+    path("fetch/", views.fetch_data_view, name="fetch-data"),
 ]

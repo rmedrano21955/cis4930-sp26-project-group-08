@@ -4,6 +4,9 @@ import requests
 from django.conf import settings
 from .models import Movie
 from .forms import MovieForm
+from django.core.management import call_command
+from django.contrib.admin.views.decorators import staff_member_required
+from django.views.decorators.http import require_POST
 
 # fake data for testing if UI works
 MOCK_RECORDS = [
@@ -102,3 +105,9 @@ def movie_delete(request, pk):
         return redirect("movie-list")
     
     return render(request, "movies/confirm_delete.html", {"movie": movie})
+
+@staff_member_required
+@require_POST
+def fetch_data_view(request):
+    call_command("fetch_data")  
+    return redirect("movie-list")
