@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    {% if record %}Edit Record{% else %}Add Record{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>{% if record %}Edit Record{% else %}Create Task{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'record-list' %}">Cancel</a>
+</form>
+{% endblock %}

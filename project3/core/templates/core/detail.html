@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Record Details{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'record-list' %}">Records</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Record #{{ record.id }}</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h2 class="h5 mb-0">Record Details</h2>
+                <div>
+                    <a href="{% url 'record-edit' record.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'record-delete' record.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3 class="h2 mb-4">{{ record.name }}</h3>
+                
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold text-muted">ID</div>
+                    <div class="col-sm-8">{{ record.id }}</div>
+                </div>
+                <hr class="text-muted opacity-25">
+                
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold text-muted">Source / Category</div>
+                    <div class="col-sm-8"><span class="badge bg-info text-dark">{{ record.source }}</span></div>
+                </div>
+                <hr class="text-muted opacity-25">
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold text-muted">Date Created</div>
+                    <div class="col-sm-8">{{ record.date|date:"F j, Y" }}</div>
+                </div>
+                <hr class="text-muted opacity-25">
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold text-muted">Numeric Value</div>
+                    <div class="col-sm-8 font-monospace">{{ record.numeric_value }}</div>
+                </div>
+                <hr class="text-muted opacity-25">
+
+                <div class="mt-4">
+                    <h5 class="h6 fw-bold text-muted">Description/Data</h5>
+                    <p class="mb-0">{{ record.description|default:"No additional data provided for this record." }}</p>
+                </div>
+            </div>
+            <div class="card-footer bg-light py-3">
+                <small class="text-muted">Last updated: {{ record.updated_at|date:"Y-m-d H:i" }}</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
