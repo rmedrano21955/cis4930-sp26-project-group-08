@@ -20,7 +20,7 @@ class Command(BaseCommand):
 	with open(csv_path, newline='', encoding='utf-8') as f:
 		reader = csv.DictReader(f)
 
-		with transaction.atomic()
+		with transaction.atomic():
 			for row in reader:
 				try:
 					genre, _ = Genre.objects.get_or_create(
