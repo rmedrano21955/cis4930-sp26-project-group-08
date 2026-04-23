@@ -51,7 +51,7 @@ class Command(BaseCommand):
 						defaults={
 							'name': row['track_name'].strip(),
 							'artists': row['artists'].strip(),
-							'album_name': row['album_name'].strip()
+							'album_name': row['album_name'].strip(),
 							'popularity': pop,
 							'duration_ms': int(row['duration_ms']),
 							'explicit': explicit,
