@@ -8,7 +8,7 @@ class Command(BaseCommand):
 	help = 'Load Project 1 Spotify CSV data into the database'
 
 	def handle(self, *args, **options):
-		csv_path = os.path.join('data', 'raw', 'sample_1_.csv')
+		csv_path = os.path.join('data', 'raw', 'sample.csv')
 
 		if not os.path.exists(csv_path):
 			self.stderr.write(self.style.ERROR(f'CSV not found at {csv_path}'))
