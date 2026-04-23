@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="py-5">
+    <h1 class="display-4 fw-bold mb-4">Explore Data</h1>
+    <p class="lead">EDA from proj 1 and API from proj 2</p>
+    <div class="mt-4">
+        <a href="{% url 'record-list' %}" class="btn btn-primary">View Records</a>
+        <a href="{% url 'analytics' %}" class="btn btn-outline-secondary">Analytics Dashboard</a>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h3>Dataset</h3>
+        <p>From Project 1.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>API</h3>
+        <p>From Project 2.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>ORM</h3>
+        <p>Presented via Django.</p>
+    </div>
+</div>
+{% endblock %}
