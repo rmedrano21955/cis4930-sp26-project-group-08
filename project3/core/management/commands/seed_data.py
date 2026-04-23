@@ -57,7 +57,7 @@ class Command(BaseCommand):
 								'explicit': explicit,
 								'danceability': float(row['danceability']),
 								'energy': energy,
-								'loudness': flaot(row['loudness']),
+								'loudness': float(row['loudness']),
 								'liveness': float(row['liveness']),
 								'valence': float(row['valence']),
 								'tempo': float(row['tempo']),
