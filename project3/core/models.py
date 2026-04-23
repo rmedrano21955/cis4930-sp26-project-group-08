@@ -52,7 +52,7 @@ class Track(models.Model):
 	loudness = models.FloatField(help_text="Decibals, typically -60 to 0")
 	liveness = models.FloatField(help_text="0.0 to 1.0")
 	valence = models.FloatField(help_text="0.0 to 1.0, musical positiveness")
-	temp = models.FloatField(help_text="BPM")
+	tempo = models.FloatField(help_text="BPM")
 
 	popularity_level = models.CharField(
 		max_length = 10,
