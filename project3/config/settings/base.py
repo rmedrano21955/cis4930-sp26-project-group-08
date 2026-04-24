@@ -4,6 +4,8 @@ from decouple import config, Csv
 # config/settings/base.py sits two levels inside the project root
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+API_KEY = config('OMDB_API_KEY')
+
 SECRET_KEY = config('SECRET_KEY')
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
