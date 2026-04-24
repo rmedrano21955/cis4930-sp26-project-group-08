@@ -1,2 +1,53 @@
-<h1>{{ movie.title }}</h1>
-<p>{{ movie.year }}</p>
+{% extends 'core/base.html' %}
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'movie-list' %}">Movies</a></li>
+    <li class="breadcrumb-item active">{{ movie.title }}</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-lg-8 mx-auto">
+    <div class="card shadow">
+      <div class="card-header bg-dark text-white py-3 d-flex justify-content-between align-items-center">
+        <h2 class="h5 mb-0">Movie Details</h2>
+        <div>
+          <a href="{% url 'movie-update' movie.pk %}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{% url 'movie-delete' movie.pk %}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="h2 mb-4">{{ movie.title }}</h3>
+        <div class="row mb-3">
+          <div class="col-sm-4 fw-bold text-muted">Year</div>
+          <div class="col-sm-8">{{ movie.year }}</div>
+        </div>
+        <hr class="text-muted opacity-25">
+        <div class="row mb-3">
+          <div class="col-sm-4 fw-bold text-muted">Genre</div>
+          <div class="col-sm-8">{{ movie.genre }}</div>
+        </div>
+        <hr class="text-muted opacity-25">
+        <div class="row mb-3">
+          <div class="col-sm-4 fw-bold text-muted">IMDB Rating</div>
+          <div class="col-sm-8">{{ movie.imdb_rating }}</div>
+        </div>
+        <hr class="text-muted opacity-25">
+        <div class="row mb-3">
+          <div class="col-sm-4 fw-bold text-muted">Source</div>
+          <div class="col-sm-8"><span class="badge bg-info text-dark">{{ movie.source }}</span></div>
+        </div>
+      </div>
+      <div class="card-footer bg-light py-3">
+        <a href="{% url 'movie-list' %}" class="btn btn-secondary btn-sm">Back to List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
