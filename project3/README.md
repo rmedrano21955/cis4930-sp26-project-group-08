@@ -16,7 +16,12 @@ How to get project running:
    python manage.py migrate
    ```
 
-4. Run app via django
+4. Fetch data from API
+ ```bash
+   python manage.py fetch_data
+   ```
+
+5. Run app via django
    ```bash
    python manage.py runserver
    ```
