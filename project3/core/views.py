@@ -1,5 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import TemplateView
+import requests
+from django.conf import settings
+from .models import Movie
+from .forms import MovieForm
+from django.core.management import call_command
+from django.contrib.admin.views.decorators import staff_member_required
+from django.views.decorators.http import require_POST
 
 # fake data for testing if UI works
 MOCK_RECORDS = [
@@ -40,3 +47,67 @@ def analytics(request):
         'summary_stats': summary_stats,
         'chart_json': '{}'
     })
+
+def movie_search(request):
+    query = request.GET.get("q", "john wick")
+
+    url = "http://www.omdbapi.com/"
+
+    params = {
+        "apikey": settings.API_KEY,
+        "s": query
+    }
+
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    movies = data.get("Search", [])
+
+    return render(request, "movies/search.html", {
+        "movies": movies,
+        "query": query
+    })
+
+def movie_list(request):
+    movies = Movie.objects.all()
+    return render(request, "movies/list.html", {"movies": movies})
+
+def movie_create(request):
+    if request.method == "POST":
+        form = MovieForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("movie-list")
+    else:
+        form = MovieForm()
+    
+    return render(request, "movies/form.html", {"form": form})
+
+def movie_update(request, pk):
+    movie = get_object_or_404(Movie, pk=pk)
+    form = MovieForm(request.POST or None, instance=movie)
+
+    if form.is_valid():
+        form.save()
+        return redirect("movie-list")
+    
+    return render(request, "movies/form.html", {"form": form})
+
+def movie_detail(request, pk):
+    movie = get_object_or_404(Movie, pk=pk)
+    return render(request, "movies/detail.html", {"movie": movie})
+
+def movie_delete(request, pk):
+    movie = get_object_or_404(Movie, pk=pk)
+
+    if request.method == "POST":
+        movie.delete()
+        return redirect("movie-list")
+    
+    return render(request, "movies/confirm_delete.html", {"movie": movie})
+
+@staff_member_required
+@require_POST
+def fetch_data_view(request):
+    call_command("fetch_data")  
+    return redirect("movie-list")

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <h1>Welcome to Our Data App</h1>
+    <p class="lead">A simple interface to view and analyze data.</p>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">View Data</h5>
+        <a href="/list" class="btn btn-primary">Go</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Add Data</h5>
+        <a href="/form" class="btn btn-success">Go</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Dashboard</h5>
+        <a href="/dashboard" class="btn btn-dark">Go</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

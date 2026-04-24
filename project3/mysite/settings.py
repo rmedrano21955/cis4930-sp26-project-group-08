@@ -1,5 +1,8 @@
 from pathlib import Path
 import os
+from decouple import config
+
+API_KEY = config("API_KEY")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
