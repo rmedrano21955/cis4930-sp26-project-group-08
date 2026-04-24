@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics Dashboard{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-3">Dashboard</h2>
+
+<div class="row g-3">
+
+    <!-- Chart -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5>Chart Area</h5>
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5>Summary</h5>
+
+                {% if summary_stats %}
+                    <ul class="list-group">
+                        {% for key, value in summary_stats.items %}
+                            <li class="list-group-item d-flex justify-content-between">
+                                <strong>{{ key }}</strong>
+                                <span>{{ value }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No summary data available.</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<!-- Chart.js (required since base.html doesn't include it) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('chart');
+
+    // Safely load JSON passed from Django
+    let chartData = {};
+
+    try {
+        chartData = JSON.parse('{{ chart_json|escapejs }}');
+    } catch (e) {
+        console.warn("Invalid chart_json, using fallback data.");
+        chartData = {
+            labels: ['No Data'],
+            datasets: [{
+                label: 'Empty',
+                data: [0]
+            }]
+        };
+    }
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+</script>
+{% endblock %}
