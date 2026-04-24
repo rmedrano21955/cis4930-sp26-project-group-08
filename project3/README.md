@@ -17,7 +17,7 @@ How to get project running:
    ```
 
 4. Fetch data from API
- ```bash
+   ```bash
    python manage.py fetch_data
    ```
 
