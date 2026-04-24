@@ -82,12 +82,15 @@ This Django web application explores a dataset of 500 Spotify tracks across 113 
 ## Screenshots
 
 ### Homepage
+<img width="1914" height="947" alt="image" src="https://github.com/user-attachments/assets/6bb48807-2f68-4270-86f3-71d3f7a89a1d" />
 
 
 ### Track List (with pagination)
+<img width="1897" height="895" alt="image" src="https://github.com/user-attachments/assets/31a8953b-17f0-4147-a6f8-632957e2b052" />
 
 
 ### Analytics Dashboard
+<img width="1918" height="904" alt="image" src="https://github.com/user-attachments/assets/c328448c-1ea0-4475-a350-deb7f4d20391" />
 
 
 ## Deployment Check
