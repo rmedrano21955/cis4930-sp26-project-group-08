@@ -4,10 +4,10 @@
 
 | Name | Student ID |
 |------|-----------|
-| [Member 1 Name] | [ID] |
-| [Member 2 Name] | [ID] |
-| [Member 3 Name] | [ID] |
-| [Member 4 Name] | [ID] |
+| Alejandra McLetchie | am23ga |
+| Raul Medrano | rem22r |
+| Jake Serwe | js23g |
+| Charlie Bleeze | cfb22 |
 
 ## Project Description
 
