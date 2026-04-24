@@ -6,32 +6,42 @@ import os
 from django.conf import settings
 
 class Command(BaseCommand):
-    help = "Fetch movies from API"
+    help = "Fetch movies from OMDb API and store in DB"
 
     def handle(self, *args, **kwargs):
-        
-        api_key = settings.API_KEY
 
-        if not api_key:
-            self.stderr.write("Missing API_KEY in environment")
-            return
-
+        api_key = "5589e759"
         url = "http://www.omdbapi.com/"
 
-        try:
-            response = requests.get(
-                url,
-                params={
-                    "apikey": api_key,
-                    "s": "batman"
-                },
-                timeout=10
-            )
+        for page in range(1, 4):
+            try:
+                response = requests.get(
+                    url,
+                    params={
+                        "apikey": api_key,
+                        "s": "batman",
+                        "page": page
+                    },
+                    timeout=10
+                )
 
-            response.raise_for_status()
-            data = response.json()
+                response.raise_for_status()
+                data = response.json()
 
-            self.stdout.write(str(data))
+                if "Search" not in data:
+                    continue
 
-        except requests.exceptions.RequestException as e:
-            self.stderr.write(str(e))
+                for item in data["Search"]:
+
+                    Movie.objects.update_or_create(
+                        imdb_id=item["imdbID"],
+                        defaults={
+                            "title": item["Title"],
+                            "year": item["Year"],
+                        }
+                    )
+
+                self.stdout.write(f"Page {page} imported successfully")
+
+            except requests.exceptions.RequestException as e:
+                self.stderr.write(str(e))
