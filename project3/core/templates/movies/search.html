@@ -1,23 +1,35 @@
-<h1>Movie Search</h1>
+{% extends 'core/base.html' %}
+{% block title %}Movie Search{% endblock %}
 
-<form method="GET">
-    <input type="text" name="q" value="{{ query }}">
-    <button type="submit">Search</button>
+{% block content %}
+
+<h2 class="mb-4">Movie Search</h2>
+
+<form method="GET" class="mb-4">
+  <div class="input-group">
+    <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="Search for a movie...">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
 </form>
 
-<hr>
-
 {% if movies %}
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for movie in movies %}
-        <div style="margin-bottom:20px;">
-            <h3>{{ movie.Title }}</h3>
-            <p>{{ movie.Year }}</p>
-
-            {% if movie.Poster and movie.Poster != "N/A" %}
-                <img src="{{ movie.Poster }}" width="120">
-            {% endif %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        {% if movie.Poster and movie.Poster != "N/A" %}
+          <img src="{{ movie.Poster }}" class="card-img-top" alt="{{ movie.Title }} poster">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.Title }}</h5>
+          <p class="card-text text-muted">{{ movie.Year }}</p>
         </div>
+      </div>
+    </div>
     {% endfor %}
+  </div>
 {% else %}
-    <p>No results found</p>
+  <div class="alert alert-warning mt-3">No results found for "{{ query }}".</div>
 {% endif %}
+
+{% endblock %}
