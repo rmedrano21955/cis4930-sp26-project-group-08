@@ -9,12 +9,29 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="container py-4">
-    <nav class="navbar rounded">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'record-list' %}">Records</a>
-        <a href="{% url 'analytics' %}">Analytics</a>
-        <a href="{% url 'movie-list' %}">Movies</a>
-        <a href="{% url 'record-add' %}">Add New</a>
+    <nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">MyApp</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'record-list' %}">Records</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'analytics' %}">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'movie-list' %}">Movies</a>
+        </li>
+      </ul>
+    </div>
+  </div>
     </nav>
 
     {% if messages %}
